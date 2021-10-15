@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <title>Weather</title>
+</head>
+<body>
+<header class='p-3'id="headerEl">
+    <h1 class="fw-bold header-text">Weather Dashboard</h1>
+</header>
+
+<main class="row p-3">
+    <section class='col-3' id="sidebar">
+        <div class='d-grid gap-2' id="search-area">
+            <h2 class="search-text fw-bold">Search for a city:</h2>
+            <input type="text" class="form-control" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
+            <button class="btn btn-info mb-3">Submit</button>
+        </div>
+        <div class='d-grid gap-2 mt-4' id="past-searches">
+            <button class="btn btn-secondary mb-3">Placeholder past search</button>
+            <button class="btn btn-secondary mb-3">Placeholder past search</button>
+            <button class="btn btn-secondary mb-3">Placeholder past search</button>
+            <button class="btn btn-secondary mb-3">Placeholder past search</button>
+            <button class="btn btn-secondary mb-3">Placeholder past search</button>
+        </div>
+    </section>
+    <section class='col-9' id="main-display">
+        <div class='border border-primary p-3' id="current-location-display">
+            <h2 class='fw-bold' id="current-header">Placeholder for generated location text:</h2>
+            <ul id="current-list" class="fs-5">
+                <li class="current-text">Temp: </li>
+                <li class="current-text">Wind: </li>
+                <li class="current-text">Humidity: </li>
+                <li class="current-text">UV Index: </li>
+            </ul>
+        </div>
+        <div class='p-3' id="forecast-display">
+            <h2 class='fw-bold' id="current-header">5-Day Forecast:</h2>
+            <section class="d-flex" id="forecast-container">
+                <div class="forecast-item bg-dark p-3">
+                    <h3 class=' '>Placeholder</h3>
+                    <ul  class="forecast-list fs-5">
+                        <li class="current-text">Temp: </li>
+                        <li class="current-text">Wind: </li>
+                        <li class="current-text">Humidity: </li>
+                        <li class="current-text">UV Index: </li>
+                    </ul>
+                </div>
+                <div class="forecast-item bg-dark p-3">
+                    <h3 class=' '>Placeholder</h3>
+                    <ul  class="forecast-list fs-5">
+                        <li class="current-text">Temp: </li>
+                        <li class="current-text">Wind: </li>
+                        <li class="current-text">Humidity: </li>
+                        <li class="current-text">UV Index: </li>
+                    </ul>
+                </div>
+                <div class="forecast-item bg-dark p-3">
+                    <h3 class=' '>Placeholder</h3>
+                    <ul  class="forecast-list fs-5">
+                        <li class="current-text">Temp: </li>
+                        <li class="current-text">Wind: </li>
+                        <li class="current-text">Humidity: </li>
+                        <li class="current-text">UV Index: </li>
+                    </ul>
+                </div>
+                <div class="forecast-item bg-dark p-3">
+                    <h3 class=' '>Placeholder</h3>
+                    <ul  class="forecast-list fs-5">
+                        <li class="current-text">Temp: </li>
+                        <li class="current-text">Wind: </li>
+                        <li class="current-text">Humidity: </li>
+                        <li class="current-text">UV Index: </li>
+                    </ul>
+                </div>
+                <div class="forecast-item bg-dark p-3">
+                    <h3 class=' '>Placeholder</h3>
+                    <ul  class="forecast-list fs-5">
+                        <li class="current-text">Temp: </li>
+                        <li class="current-text">Wind: </li>
+                        <li class="current-text">Humidity: </li>
+                        <li class="current-text">UV Index: </li>
+                    </ul>
+                </div>
+                
+            </section>
+
+
+        </div>
+    </section>
+</main>
+
+
+
+
+
+
+
+
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src="./assets/js/script.js"></script>
+</body>
+</html> 

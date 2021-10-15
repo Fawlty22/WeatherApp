@@ -1,0 +1,34 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+:root {
+    --primary-color: #f80404;
+    --secondary-color: #693c00;
+    --tertiary-color: #afafaf;
+    --background-color: #ffe9c2;
+}
+
+#headerEl {
+    display: flex;
+    justify-content: center;
+    background-image: linear-gradient(to right, blue,purple);
+    color: white;
+}
+
+#search-area {
+    border-bottom: 2px solid black;
+}
+
+.forecast-item{
+    margin: 10px;
+    color: white;
+    font-size: ;
+}
+
+#forecast-container{
+    justify-content: space-between;
+}
