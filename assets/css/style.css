@@ -20,7 +20,7 @@
 }
 
 #search-area {
-    border-bottom: 2px solid black;
+    border-bottom: 1px solid black;
 }
 
 .forecast-item{
@@ -31,4 +31,8 @@
 
 #forecast-container{
     justify-content: space-around;
+}
+
+ul {
+    list-style-type: none;
 }
