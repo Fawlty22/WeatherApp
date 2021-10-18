@@ -19,14 +19,13 @@
     color: white;
 }
 
-#search-area {
+#input-area {
     border-bottom: 1px solid black;
 }
 
 .forecast-item{
     margin: 10px;
     color: white;
-    font-size: ;
 }
 
 #forecast-container{
@@ -36,3 +35,4 @@
 ul {
     list-style-type: none;
 }
+

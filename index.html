@@ -14,12 +14,15 @@
 </header>
 
 <main class="row p-3">
+    <!--SideBar Section-->
     <section class='col-3' id="sidebar">
-        <div class='d-grid gap-2' id="search-area">
+        <!--Input Area-->
+        <div class='d-grid gap-2' id="input-area">
             <h2 class="search-text fw-bold">Search for a city:</h2>
-            <input type="text" class="form-control" placeholder="Type a city name here..." aria-label="Example text with button addon" aria-describedby="button-addon1">
+            <input type="text" id='input-bar' class="form-control" placeholder="Type a city name here..." aria-label="Example text with button addon" aria-describedby="button-addon1">
             <button class="btn btn-primary mb-3">Search</button>
         </div>
+        <!--Past Searches-->
         <div class='d-grid gap-2 mt-4' id="past-searches">
             <button class="btn btn-secondary mb-3">Placeholder past search</button>
             <button class="btn btn-secondary mb-3">Placeholder past search</button>
@@ -28,62 +31,71 @@
             <button class="btn btn-secondary mb-3">Placeholder past search</button>
         </div>
     </section>
+
+    <!--Main Display Section-->
     <section class='col-9' id="main-display">
+        <!--Current Location Display-->
         <div class='border border-dark p-3' id="current-location-display">
             <h2 class='fw-bold' id="current-header">Placeholder for generated location text:</h2>
             <ul id="current-list" class="fs-5 list-group">
-                <li class="current-text">Temp: </li>
-                <li class="current-text">Wind: </li>
-                <li class="current-text">Humidity: </li>
-                <li class="current-text">UV Index: </li>
+                <li class="current-text p-2">Temp: </li>
+                <li class="current-text p-2">Wind: </li>
+                <li class="current-text p-2">Humidity: </li>
+                <li class="current-text p-2">UV Index: </li>
             </ul>
         </div>
+        <!--5-Day Forecast-->
         <div class='p-3' id="forecast-display">
             <h2 class='fw-bold' id="current-header">5-Day Forecast:</h2>
             <section class="d-flex" id="forecast-container">
                 <div class="forecast-item bg-dark p-3">
-                    <h3 class=' '>Placeholder</h3>
+                    <h3 class=' '>10/15/2021</h3>
+                    <img src="" alt="">
                     <ul  class="forecast-list fs-5 list-group">
-                        <li class="current-text">Temp: </li>
-                        <li class="current-text">Wind: </li>
-                        <li class="current-text">Humidity: </li>
-                        <li class="current-text">UV Index: </li>
+                        <li class="current-text p-2">Temp: </li>
+                        <li class="current-text p-2">Wind: </li>
+                        <li class="current-text p-2">Humidity: </li>
+                        <li class="current-text p-2">UV Index: </li>
                     </ul>
                 </div>
                 <div class="forecast-item bg-dark p-3">
-                    <h3 class=' '>Placeholder</h3>
+                    <h3 class=' '>10/15/2021</h3>
+                    <img src="" alt="">
                     <ul  class="forecast-list fs-5 list-group">
-                        <li class="current-text">Temp: </li>
-                        <li class="current-text">Wind: </li>
-                        <li class="current-text">Humidity: </li>
-                        <li class="current-text">UV Index: </li>
+                        <li class="current-text p-2">Temp: </li>
+                        <li class="current-text p-2">Wind: </li>
+                        <li class="current-text p-2">Humidity: </li>
+                        <li class="current-text p-2">UV Index: </li>
                     </ul>
                 </div>
                 <div class="forecast-item bg-dark p-3">
-                    <h3 class=' '>Placeholder</h3>
+                    <h3 class=' '>10/15/2021</h3>
+                    <img src="" alt="">
                     <ul  class="forecast-list fs-5 list-group">
-                        <li class="current-text">Temp: </li>
-                        <li class="current-text">Wind: </li>
-                        <li class="current-text">Humidity: </li>
-                        <li class="current-text">UV Index: </li>
+                        <li class="current-text p-2">Temp: </li>
+                        <li class="current-text p-2">Wind: </li>
+                        <li class="current-text p-2">Humidity: </li>
+                        <li class="current-text p-2">UV Index: </li>
                     </ul>
                 </div>
                 <div class="forecast-item bg-dark p-3">
-                    <h3 class=' '>Placeholder</h3>
+                    <h3 class=' '>10/15/2021</h3>
+                    <img src="" alt="">
                     <ul  class="forecast-list fs-5 list-group">
-                        <li class="current-text">Temp: </li>
-                        <li class="current-text">Wind: </li>
-                        <li class="current-text">Humidity: </li>
-                        <li class="current-text">UV Index: </li>
+                        <li class="current-text p-2">Temp: </li>
+                        <li class="current-text p-2">Wind: </li>
+                        <li class="current-text p-2">Humidity: </li>
+                        <li class="current-text p-2">UV Index: </li>
                     </ul>
                 </div>
                 <div class="forecast-item bg-dark p-3">
-                    <h3 class=' '>Placeholder</h3>
+                    <h3 class=' '>10/15/2021</h3>
+                    <img src="" alt="">
                     <ul  class="forecast-list fs-5 list-group">
-                        <li class="current-text">Temp: </li>
-                        <li class="current-text">Wind: </li>
-                        <li class="current-text">Humidity: </li>
-                        <li class="current-text">UV Index: </li>
+                        <li class="current-text p-2">Temp: </li>
+                        <li class="current-text p-2">Wind: </li>
+                        <li class="current-text p-2">Humidity: </li>
+                        <li class="current-text p-2">UV Index: </li>
                     </ul>
                 </div>
                 
@@ -93,7 +105,6 @@
         </div>
     </section>
 </main>
-
 
 
 
