@@ -9,10 +9,6 @@ var getWeather = function() {
     var apiUrl = `https'://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=075971209128ea7c235a0302d27bd564`;
 
     // make a request to the url
-    // $.ajax({
-    //     url: apiUrl,
-    //     method: 'GET',
-    // })
     fetch(apiUrl)
     .then(function(response) {  
         //request was successful

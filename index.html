@@ -19,7 +19,7 @@
         <!--Input Area-->
         <div class='d-grid gap-2' id="input-area">
             <h2 class="search-text fw-bold">Search for a city:</h2>
-            <input type="text" id='input-bar' class="form-control" placeholder="Type a city name here..." aria-label="Example text with button addon" aria-describedby="button-addon1">
+            <input type="text" id="input-bar" class="form-control" placeholder="Type a city name here...">
             <button class="btn btn-primary mb-3">Search</button>
         </div>
         <!--Past Searches-->
@@ -36,26 +36,25 @@
     <section class='col-9' id="main-display">
         <!--Current Location Display-->
         <div class='border border-dark p-3' id="current-location-display">
-            <h2 class='fw-bold' id="current-header">Placeholder for generated location text:</h2>
+            <h2 class='fw-bold' id="current-header"></h2>
             <ul id="current-list" class="fs-5 list-group">
-                <li class="current-text p-2">Temp: </li>
-                <li class="current-text p-2">Wind: </li>
-                <li class="current-text p-2">Humidity: </li>
-                <li class="current-text p-2">UV Index: </li>
+                <li id="cur-temp" class="current-text p-2">Temperature: </li>
+                <li id="cur-wind" class="current-text p-2">Wind: </li>
+                <li id="cur-humidity" class="current-text p-2">Humidity: </li>
+                <li id="cur-uv" class="current-text p-2">UV Index: </li>
             </ul>
         </div>
         <!--5-Day Forecast-->
         <div class='p-3' id="forecast-display">
             <h2 class='fw-bold' id="current-header">5-Day Forecast:</h2>
             <section class="d-flex" id="forecast-container">
-                <div class="forecast-item bg-dark p-3">
+                <!-- <div class="forecast-item bg-dark p-3">
                     <h3 class=' '>10/15/2021</h3>
                     <img src="" alt="">
                     <ul  class="forecast-list fs-5 list-group">
                         <li class="current-text p-2">Temp: </li>
                         <li class="current-text p-2">Wind: </li>
                         <li class="current-text p-2">Humidity: </li>
-                        <li class="current-text p-2">UV Index: </li>
                     </ul>
                 </div>
                 <div class="forecast-item bg-dark p-3">
@@ -65,7 +64,6 @@
                         <li class="current-text p-2">Temp: </li>
                         <li class="current-text p-2">Wind: </li>
                         <li class="current-text p-2">Humidity: </li>
-                        <li class="current-text p-2">UV Index: </li>
                     </ul>
                 </div>
                 <div class="forecast-item bg-dark p-3">
@@ -75,7 +73,6 @@
                         <li class="current-text p-2">Temp: </li>
                         <li class="current-text p-2">Wind: </li>
                         <li class="current-text p-2">Humidity: </li>
-                        <li class="current-text p-2">UV Index: </li>
                     </ul>
                 </div>
                 <div class="forecast-item bg-dark p-3">
@@ -85,7 +82,6 @@
                         <li class="current-text p-2">Temp: </li>
                         <li class="current-text p-2">Wind: </li>
                         <li class="current-text p-2">Humidity: </li>
-                        <li class="current-text p-2">UV Index: </li>
                     </ul>
                 </div>
                 <div class="forecast-item bg-dark p-3">
@@ -95,9 +91,8 @@
                         <li class="current-text p-2">Temp: </li>
                         <li class="current-text p-2">Wind: </li>
                         <li class="current-text p-2">Humidity: </li>
-                        <li class="current-text p-2">UV Index: </li>
                     </ul>
-                </div>
+                </div> -->
                 
             </section>
 
@@ -116,7 +111,8 @@
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-    <script src="./assets/js/script.js"></script>
+    <script src="./assets/js/script2.js"></script>
 </body>
 </html> 

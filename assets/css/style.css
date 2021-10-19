@@ -23,6 +23,15 @@
     border-bottom: 1px solid black;
 }
 
+#current-location-display {
+    display: none;
+}
+
+#forecast-display {
+    display: none;
+}
+
+
 .forecast-item{
     margin: 10px;
     color: white;
