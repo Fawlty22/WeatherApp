@@ -11,6 +11,7 @@ var getWeather = function() {
             response.json().then(function(data) {
                 console.log('success', data)
                 displayWeather(data);
+                displayForecast(data);
         });
         } else {
         console.log(response)
@@ -20,6 +21,7 @@ var getWeather = function() {
     .catch(function(error) {
         alert("Unable to connect to GitHub");
     });
+    
     
 };  
 
@@ -56,13 +58,16 @@ var getUVI = function(coords) {
             console.log(data)
             //display UVI
             $('#cur-uv').text('UV Index: ' + data.current.uvi);
+                
+            
         });
         }
+        
     })
-    displayForecast()
+   
 }
 
-var displayForecast = function() {
+var displayForecast = function(data) {
     var now = moment()
     //change display from none
     $('#forecast-display').addClass('d-block')
@@ -76,26 +81,28 @@ var displayForecast = function() {
     var newHeader = $('<h3>')
     .text(moment(preDay).format('MM/DD/YYYY'))
     //make img
-    // var newImage = $('<img>')
-    // .attr()
+    var iconCode = data.list[i*i].weather[0].icon
+    var iconURL = 'http://openweathermap.org/img/wn/' + iconCode +'@2x.png'
+    var newImage = $('<img>')
+    .attr('src', iconURL)
     //make ul
     var newList = $('<ul>')
     .addClass('forecast-list fs-5 list-group')
     //make li's
     var newTemp = $('<li>')
     .addClass('current-text p-2')
-    .text('Temp:')
+    .text('Temp: ' + data.list[(i*i)-1].main.temp)
     var newWind = $('<li>')
     .addClass('current-text p-2')
-    .text('Wind:')
+    .text('Wind: ' + data.list[(i*i)-1].wind.speed)
     var newHumidity = $('<li>')
     .addClass('current-text p-2')
-    .text('Humidity:')
+    .text('Humidity: ' + data.list[(i*i)-1].main.humidity)
     
     //append header to div
     newCard.append(newHeader)
     //append img
-    // newCard.append(newImage)
+    newCard.append(newImage)
     //append ul
     newCard.append(newList)
     //append li's to ul
