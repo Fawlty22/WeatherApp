@@ -77,15 +77,18 @@ var displayForecast = function(data) {
     //change display from none
     $('#forecast-display').addClass('d-block')
     
-    for (i = 0; i < 5; i++) {
-    //make the card
+    
+    for (i = 4; i <40; i += 8) {
+    k = ((i+4)/8)+3
+
+        //make the card
     var newCard = $('<div>')
     .addClass('forecast-item bg-dark p-3');
     //make the h3
-    var preDay = moment().day(i+4)
+    var preDay = moment().day(k)
     var newHeader = $('<h3>')
     .text(moment(preDay).format('MM/DD/YYYY'))
-    //make img
+        //make img
     var iconCode = data.list[i].weather[0].icon
     var iconURL = 'http://openweathermap.org/img/wn/' + iconCode +'@2x.png'
     var newImage = $('<img>')
