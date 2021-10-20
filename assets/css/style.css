@@ -45,3 +45,8 @@ ul {
     list-style-type: none;
 }
 
+#UV-box {
+    font-weight: bold;
+    border: 1px solid black;
+    border-radius: 10px;
+}

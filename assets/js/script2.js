@@ -55,12 +55,17 @@ var getUVI = function(coords) {
         //request was successful
         if (response.ok) {
             response.json().then(function(data) {
-            console.log(data)
-            //display UVI
-            $('#cur-uv').text('UV Index: ' + data.current.uvi);
-                
-            
-        });
+                console.log(data)
+                //display UVI
+                $('#UV-box').text(data.current.uvi);
+                if (data.current.uvi > 10) {
+                    $('#UV-box').addClass('bg-danger')
+                } else if (data.current.uvi < 10 && data.current.uvi > 5) {
+                    $('#UV-box').addClass('bg-warning')
+                } else {
+                    $('#UV-box').addClass('bg-success')
+                }
+            });
         }
         
     })
@@ -72,16 +77,16 @@ var displayForecast = function(data) {
     //change display from none
     $('#forecast-display').addClass('d-block')
     
-    for (i = 2; i < 7; i++) {
+    for (i = 0; i < 5; i++) {
     //make the card
     var newCard = $('<div>')
     .addClass('forecast-item bg-dark p-3');
     //make the h3
-    var preDay = moment().day(i)
+    var preDay = moment().day(i+4)
     var newHeader = $('<h3>')
     .text(moment(preDay).format('MM/DD/YYYY'))
     //make img
-    var iconCode = data.list[i*i].weather[0].icon
+    var iconCode = data.list[i].weather[0].icon
     var iconURL = 'http://openweathermap.org/img/wn/' + iconCode +'@2x.png'
     var newImage = $('<img>')
     .attr('src', iconURL)
@@ -91,13 +96,13 @@ var displayForecast = function(data) {
     //make li's
     var newTemp = $('<li>')
     .addClass('current-text p-2')
-    .text('Temp: ' + data.list[(i*i)-1].main.temp)
+    .text('Temp: ' + data.list[i].main.temp)
     var newWind = $('<li>')
     .addClass('current-text p-2')
-    .text('Wind: ' + data.list[(i*i)-1].wind.speed)
+    .text('Wind: ' + data.list[i].wind.speed)
     var newHumidity = $('<li>')
     .addClass('current-text p-2')
-    .text('Humidity: ' + data.list[(i*i)-1].main.humidity)
+    .text('Humidity: ' + data.list[i].main.humidity)
     
     //append header to div
     newCard.append(newHeader)
