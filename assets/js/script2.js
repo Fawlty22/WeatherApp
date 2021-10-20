@@ -30,9 +30,9 @@ var displayWeather = function(data) {
     $('#current-location-display').addClass('d-block')
 
     $('#current-header').text(data.city.name + " (" + moment().format('MM/DD/YYYY') +")")
-    var currentTemp = data.list[0].main.temp
-    var currentWind = data.list[0].wind.speed
-    var currentHumidity = data.list[0].main.humidity
+    var currentTemp = data.list[4].main.temp
+    var currentWind = data.list[4].wind.speed
+    var currentHumidity = data.list[4].main.humidity
     
     $('#cur-temp').text('Temp: ' + currentTemp + '˚')
     $('#cur-wind').text('Wind: ' + currentWind + 'mph')
@@ -43,8 +43,12 @@ var displayWeather = function(data) {
         Lattitude: data.city.coord.lat,
         Longitude: data.city.coord.lat,
     }
-    //send it to getforecast
+    //send it to getUVI
     getUVI(coords);
+}
+
+var getCoords = function(){
+
 }
 
 var getUVI = function(coords) {
@@ -79,7 +83,8 @@ var displayForecast = function(data) {
     
     
     for (i = 4; i <40; i += 8) {
-    k = ((i+4)/8)+3
+    //variable for moment dates to handle weird iterating
+        k = ((i+4)/8)+3
 
         //make the card
     var newCard = $('<div>')
