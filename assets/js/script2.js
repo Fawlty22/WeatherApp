@@ -254,8 +254,13 @@ var saveWeather = function() {
     localStorage.setItem('cities', JSON.stringify(citiesArray))
 }
 
+
+
 var loadWeather = function(){
     var loadedCities = JSON.parse(localStorage.getItem('cities'))
+    if (loadedCities == undefined){
+        loadedCities = []
+    }
     for (i=0;i<loadedCities.length;i++){
     // make the new button
     var newPastLocationButton = $('<button>')
@@ -268,9 +273,7 @@ var loadWeather = function(){
 
 loadWeather();
 
-                                                                
-
-
+                                                            
                                                         //event listeners
 $('#input-area').on('click', 'button', function () {
     //run getWeather
