@@ -229,27 +229,56 @@ var reloadForecast = function (data) {
 var buttonFilter = function (data) {
     var pastButtonsObjArray = $('#past-searches').children()
     var pastButtonsArray = []
-    var inputtedCity = data.city.name
+    var inputCity = data.city.name
+    //add previously searched city names to array
     for (i = 0; i < pastButtonsObjArray.length; i++) {
         var newCityName = pastButtonsObjArray[i].textContent
         pastButtonsArray.push(newCityName)
     }
-
-    console.log('pastbuttonsobjarray', pastButtonsObjArray)
-    console.log('pastbuttonsarray', pastButtonsArray)
-
-    if(pastButtonsArray.indexOf(inputtedCity) === -1){
+    //if button doesnt yet exist, make it
+    if(pastButtonsArray.indexOf(inputCity) === -1){
     createPastLocation(data);
+    }
+    saveWeather();
+}
+
+var saveWeather = function() {
+    var citiesArray = []
+    var pastButtonsObjArray = $('#past-searches').children()
+
+    //add previously searched city names to array
+    for (i = 0; i < pastButtonsObjArray.length; i++) {
+        var newCityName = pastButtonsObjArray[i].textContent
+        citiesArray.push(newCityName)
+    }
+    localStorage.setItem('cities', JSON.stringify(citiesArray))
+}
+
+var loadWeather = function(){
+    var loadedCities = JSON.parse(localStorage.getItem('cities'))
+    for (i=0;i<loadedCities.length;i++){
+    // make the new button
+    var newPastLocationButton = $('<button>')
+        .addClass('btn past-btn btn-secondary mb-3')
+        .text(loadedCities[i])
+    //append it to sidebar
+    $('#past-searches').append(newPastLocationButton)
     }
 }
 
+loadWeather();
 
+                                                                
+
+
+                                                        //event listeners
 $('#input-area').on('click', 'button', function () {
     //run getWeather
     getWeather();
     //clear input bar
     $('#input-bar').val('')
     $('#forecast-container').empty()
+    
 })
 
 $('#past-searches').on('click', 'button', function () {
@@ -257,5 +286,7 @@ $('#past-searches').on('click', 'button', function () {
     // console.log(locationToLoad)
     reloadWeather(locationToLoad);
     $('#forecast-container').empty();
+
+
 
 })
