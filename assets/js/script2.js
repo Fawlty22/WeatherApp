@@ -9,11 +9,11 @@ var getWeather = function () {
             //request was successful
             if (response.ok) {
                 response.json().then(function (data) {
-                    console.log('success', data)
+                    console.log('getWeather', data)
                     showWeatherBox(data);
                     displayForecast(data);
                     getCoords(data);
-                    createPastLocation(data);
+                    buttonFilter(data);
                 });
             } else {
                 console.log(response)
@@ -23,8 +23,6 @@ var getWeather = function () {
         .catch(function (error) {
             alert("Unable to connect to GitHub");
         });
-
-
 };
 
 var showWeatherBox = function (data) {
@@ -64,7 +62,7 @@ var getUVI = function (coords) {
             //request was successful
             if (response.ok) {
                 response.json().then(function (data) {
-                    console.log(data)
+                    console.log('uvi get', data)
                     //display UVI
                     $('#UV-box').text(data.current.uvi);
                     if (data.current.uvi >= .7) {
@@ -111,13 +109,15 @@ var displayForecast = function (data) {
         //make li's
         var newTemp = $('<li>')
             .addClass('current-text p-2')
-            .text('Temp: ' + data.list[i].main.temp)
+            .text('Temp: ' + data.list[i].main.temp + '˚')
+        var parseWind = Math.floor(data.list[i].wind.speed)
         var newWind = $('<li>')
             .addClass('current-text p-2')
-            .text('Wind: ' + data.list[i].wind.speed)
+            .text('Wind: ' + parseWind + 'mph')
         var newHumidity = $('<li>')
             .addClass('current-text p-2')
-            .text('Humidity: ' + data.list[i].main.humidity)
+            .text('Humidity: ' + data.list[i].main.humidity + '%')
+
 
         //append header to div
         newCard.append(newHeader)
@@ -136,16 +136,17 @@ var displayForecast = function (data) {
 }
 
 var createPastLocation = function (data) {
+
     // make the new button
     var newPastLocationButton = $('<button>')
-    .addClass('btn btn-secondary mb-3')
-    .text(data.city.name)
+        .addClass('btn past-btn btn-secondary mb-3')
+        .text(data.city.name)
     //append it to sidebar
     $('#past-searches').append(newPastLocationButton)
 }
 
 var reloadWeather = function (locationToLoad) {
-    
+
     locationToLoad.replace(' ', '%20')
     // format the url
     var apiUrl = "https://api.openweathermap.org/data/2.5/forecast?q=" + locationToLoad + "&appid=075971209128ea7c235a0302d27bd564&units=imperial";
@@ -155,11 +156,10 @@ var reloadWeather = function (locationToLoad) {
             //request was successful
             if (response.ok) {
                 response.json().then(function (data) {
-                    console.log('success', data)
+                    console.log('reload', data)
                     showWeatherBox(data);
                     reloadForecast(data);
                     getCoords(data);
-                    createPastLocation(data);
                 });
             } else {
                 console.log(response)
@@ -201,13 +201,14 @@ var reloadForecast = function (data) {
         //make li's
         var newTemp = $('<li>')
             .addClass('current-text p-2')
-            .text('Temp: ' + data.list[i].main.temp)
+            .text('Temp: ' + data.list[i].main.temp + '˚')
+        var parseWind = Math.floor(data.list[i].wind.speed)
         var newWind = $('<li>')
             .addClass('current-text p-2')
-            .text('Wind: ' + data.list[i].wind.speed)
+            .text('Wind: ' + parseWind + 'mph')
         var newHumidity = $('<li>')
             .addClass('current-text p-2')
-            .text('Humidity: ' + data.list[i].main.humidity)
+            .text('Humidity: ' + data.list[i].main.humidity + '%')
 
         //append header to div
         newCard.append(newHeader)
@@ -225,6 +226,23 @@ var reloadForecast = function (data) {
     }
 }
 
+var buttonFilter = function (data) {
+    var pastButtonsObjArray = $('#past-searches').children()
+    var pastButtonsArray = []
+    var inputtedCity = data.city.name
+    for (i = 0; i < pastButtonsObjArray.length; i++) {
+        var newCityName = pastButtonsObjArray[i].textContent
+        pastButtonsArray.push(newCityName)
+    }
+
+    console.log('pastbuttonsobjarray', pastButtonsObjArray)
+    console.log('pastbuttonsarray', pastButtonsArray)
+
+    if(pastButtonsArray.indexOf(inputtedCity) === -1){
+    createPastLocation(data);
+    }
+}
+
 
 $('#input-area').on('click', 'button', function () {
     //run getWeather
@@ -234,10 +252,10 @@ $('#input-area').on('click', 'button', function () {
     $('#forecast-container').empty()
 })
 
-$('#past-searches').on('click', 'button', function() {
+$('#past-searches').on('click', 'button', function () {
     var locationToLoad = $(this).text()
     // console.log(locationToLoad)
-    reloadWeather(locationToLoad);    
+    reloadWeather(locationToLoad);
     $('#forecast-container').empty();
 
 })
