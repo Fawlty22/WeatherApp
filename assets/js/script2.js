@@ -10,8 +10,9 @@ var getWeather = function() {
         if (response.ok) {
             response.json().then(function(data) {
                 console.log('success', data)
-                displayWeather(data);
+                showWeatherBox(data);
                 displayForecast(data);
+                getCoords(data);
         });
         } else {
         console.log(response)
@@ -25,19 +26,25 @@ var getWeather = function() {
     
 };  
 
-var displayWeather = function(data) {
-    //change display from none 
-    $('#current-location-display').addClass('d-block')
+var showWeatherBox = function(data) {
+ //change display from none 
+ $('#current-location-display').addClass('d-block')
+ $('#current-header').text(data.city.name + " (" + moment().format('MM/DD/YYYY') +")")
+}
 
-    $('#current-header').text(data.city.name + " (" + moment().format('MM/DD/YYYY') +")")
-    var currentTemp = data.list[4].main.temp
-    var currentWind = data.list[4].wind.speed
-    var currentHumidity = data.list[4].main.humidity
+var displayWeather = function(data) {
+    var currentTemp = data.current.temp
+    var currentWind = data.current.wind_speed
+    var currentHumidity = data.current.humidity
     
     $('#cur-temp').text('Temp: ' + currentTemp + '˚')
     $('#cur-wind').text('Wind: ' + currentWind + 'mph')
     $('#cur-humidity').text('Humidity: ' + currentHumidity +'%')
 
+    
+}
+
+var getCoords = function(data){
     //set coordinates
     let coords = {
         Lattitude: data.city.coord.lat,
@@ -45,9 +52,6 @@ var displayWeather = function(data) {
     }
     //send it to getUVI
     getUVI(coords);
-}
-
-var getCoords = function(){
 
 }
 
@@ -62,13 +66,15 @@ var getUVI = function(coords) {
                 console.log(data)
                 //display UVI
                 $('#UV-box').text(data.current.uvi);
-                if (data.current.uvi > 10) {
+                if (data.current.uvi >= .7) {
                     $('#UV-box').addClass('bg-danger')
-                } else if (data.current.uvi < 10 && data.current.uvi > 5) {
+                } else if (data.current.uvi < .7 && data.current.uvi >= .3) {
                     $('#UV-box').addClass('bg-warning')
                 } else {
                     $('#UV-box').addClass('bg-success')
                 }
+
+                displayWeather(data)
             });
         }
         
