@@ -89,7 +89,7 @@ var displayForecast = function (data) {
 
     for (i = 4; i < 40; i += 8) {
         //variable for moment dates to handle weird iterating
-        k = ((i + 4) / 8) + 3
+        k = ((i + 4) / 8) + 4
 
         //make the card
         var newCard = $('<div>')
@@ -181,7 +181,7 @@ var reloadForecast = function (data) {
 
     for (i = 4; i < 40; i += 8) {
         //variable for moment dates to handle weird iterating
-        k = ((i + 4) / 8) + 3
+        k = ((i + 4) / 8) + 4
 
         //make the card
         var newCard = $('<div>')
