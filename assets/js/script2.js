@@ -153,3 +153,8 @@ $('#input-area').on('click', 'button', function () {
     $('#input-bar').val('')
     $('#forecast-container').empty()
 })
+
+$('#past-searches').on('click', 'button', function() {
+    var locationToLoad = $(this).text()
+    console.log(locationToLoad)
+})
