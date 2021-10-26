@@ -10,8 +10,9 @@ var getWeather = function () {
             if (response.ok) {
                 response.json().then(function (data) {
                     console.log('getWeather', data)
-                    showWeatherBox(data);
-                    displayForecast(data);
+
+                    showWeatherBox(data); //function passing data to do ...
+                    displayForecast(data); //display forecast in the five days cards
                     getCoords(data);
                     buttonFilter(data);
                 });
@@ -86,10 +87,9 @@ var displayForecast = function (data) {
     //change display from none
     $('#forecast-display').addClass('d-block')
 
-
     for (i = 4; i < 40; i += 8) {
         //variable for moment dates to handle weird iterating
-        k = ((i + 4) / 8) + 5
+        k = ((i + 4) / 8) + 2
 
         //make the card
         var newCard = $('<div>')
@@ -181,7 +181,7 @@ var reloadForecast = function (data) {
 
     for (i = 4; i < 40; i += 8) {
         //variable for moment dates to handle weird iterating
-        k = ((i + 4) / 8) + 5
+        k = ((i + 4) / 8) + 2
 
         //make the card
         var newCard = $('<div>')
@@ -236,6 +236,15 @@ var buttonFilter = function (data) {
         pastButtonsArray.push(newCityName)
     }
     //if button doesnt yet exist, make it
+    console.log('button array',pastButtonsArray);
+    pastButtonsArray.map((city) => {
+        
+        if('London' != city){
+            alert("there is no match")
+        }else{
+            alert("i am here")
+        }
+    })
     if(pastButtonsArray.indexOf(inputCity) === -1){
     createPastLocation(data);
     }
