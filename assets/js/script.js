@@ -66,9 +66,9 @@ var getUVI = function (coords) {
                     console.log('uvi get', data)
                     //display UVI
                     $('#UV-box').text(data.current.uvi);
-                    if (data.current.uvi >= .7) {
+                    if (data.current.uvi >= 7) {
                         $('#UV-box').addClass('bg-danger')
-                    } else if (data.current.uvi < .7 && data.current.uvi >= .3) {
+                    } else if (data.current.uvi < 7 && data.current.uvi >= 3) {
                         $('#UV-box').addClass('bg-warning')
                     } else {
                         $('#UV-box').addClass('bg-success')
